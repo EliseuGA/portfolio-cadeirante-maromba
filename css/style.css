@@ -290,53 +290,61 @@ button { font-family: inherit; cursor: pointer; }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Ajuste para o grid de vídeos */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-    max-width: var(--max);
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
 }
 
-.vwrap {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: #000;
-    border: 1px solid var(--border);
-    transition: border-color 0.25s, transform 0.25s;
-}
-
-.vwrap:hover { border-color: #444; transform: translateY(-3px); }
-
-.vwrap.local {
-    aspect-ratio: 16 / 9;
-}
-
-.vwrap.local video {
-    width: 100%; height: 100%;
-    object-fit: cover;
-}
-
-/* YouTube click-to-load */
+/* Container do vídeo (Proporção 16:9) */
 .vwrap.yt {
-    aspect-ratio: 16 / 9;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Isso cria o espaço para a imagem */
+    height: 0;
+    background: #000;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* Garante que a Thumbnail preencha o container */
+.vwrap.yt img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Não deixa a imagem esticada */
+    z-index: 1;
+}
+
+/* Botão de Play centralizado */
+.yt-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: rgba(0, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #000;
     cursor: pointer;
 }
 
-.vwrap.yt img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.vwrap.yt:hover img { transform: scale(1.03); }
-
+/* Iframe que substitui a imagem ao clicar */
 .vwrap.yt iframe {
     position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    border: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
 }
 
 .yt-play {

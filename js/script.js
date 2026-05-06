@@ -272,7 +272,6 @@ function applyTranslations(lang) {
         const key = el.getAttribute('data-i18n');
         if (!t[key]) return;
 
-        // Elements that safely render HTML (p, span, h2, h3, label)
         const htmlTags = ['P', 'SPAN', 'H2', 'H3', 'LABEL', 'A', 'BUTTON'];
         if (htmlTags.includes(el.tagName)) {
             el.innerHTML = t[key];
@@ -281,7 +280,6 @@ function applyTranslations(lang) {
         }
     });
 
-    // Translate placeholder attributes
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
         if (t[key]) el.placeholder = t[key];
@@ -309,19 +307,12 @@ function initNavbar() {
         if (!ticking) {
             requestAnimationFrame(() => {
                 const scroll = window.scrollY;
-
-                // Scrolled style
                 navbar.classList.toggle('scrolled', scroll > 40);
-
-                // Hide on scroll down, show on scroll up
                 if (scroll > 120) {
-                    navbar.style.transform = scroll > lastScroll
-                        ? 'translateY(-110%)'
-                        : 'translateY(0)';
+                    navbar.style.transform = scroll > lastScroll ? 'translateY(-110%)' : 'translateY(0)';
                 } else {
                     navbar.style.transform = 'translateY(0)';
                 }
-
                 lastScroll = scroll;
                 ticking = false;
             });
@@ -340,34 +331,25 @@ function initPortfolio() {
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
             const cat = btn.getAttribute('data-cat');
-
-            // Pause all videos and clear sources to free memory
             panels.forEach(panel => {
-                panel.querySelectorAll('video').forEach(v => {
-                    v.pause();
-                });
+                panel.querySelectorAll('video').forEach(v => v.pause());
                 panel.classList.remove('active');
             });
-
             btns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const target = document.getElementById('cat-' + cat);
             if (!target) return;
             target.classList.add('active');
-
-            // Lazy-load videos in newly visible panel
             loadLazyVideos(target);
         });
     });
 }
 
 /* =============================================
-   LAZY VIDEO LOADING (performance)
+   LAZY VIDEO LOADING
 ============================================= */
 function loadLazyVideos(container) {
     const videos = container ? container.querySelectorAll('.lazy-video') : document.querySelectorAll('.lazy-video');
-
     videos.forEach(video => {
         const sources = video.querySelectorAll('source[data-src]');
         sources.forEach(source => {
@@ -375,15 +357,12 @@ function loadLazyVideos(container) {
                 source.src = source.getAttribute('data-src');
             }
         });
-
-        if (video.readyState === 0) {
-            video.load();
-        }
+        if (video.readyState === 0) video.load();
     });
 }
 
 /* =============================================
-   INTERSECTION OBSERVER: autoplay muted videos
+   INTERSECTION OBSERVER
 ============================================= */
 function initVideoObserver() {
     const observer = new IntersectionObserver((entries) => {
@@ -397,12 +376,11 @@ function initVideoObserver() {
             }
         });
     }, { threshold: 0.3 });
-
     document.querySelectorAll('.lazy-video').forEach(v => observer.observe(v));
 }
 
 /* =============================================
-   YOUTUBE CLICK-TO-LOAD
+   YOUTUBE CLICK-TO-LOAD (CORRIGIDO)
 ============================================= */
 function initYouTube() {
     document.querySelectorAll('.vwrap.yt').forEach(wrap => {
@@ -410,10 +388,11 @@ function initYouTube() {
             const vid = wrap.getAttribute('data-vid');
             if (!vid) return;
 
+            // Usando youtube-nocookie para evitar bloqueios de bots e privacidade
             wrap.innerHTML = `<iframe
-                src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0"
+                src="https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1"
                 frameborder="0"
-                allow="autoplay; encrypted-media"
+                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>`;
         });
@@ -427,12 +406,9 @@ function initWorkflow() {
     const wrapper = document.getElementById('workflowWrapper');
     const video   = document.getElementById('workflowVideo');
     const overlay = document.getElementById('wfOverlay');
-
     if (!wrapper || !video || !overlay) return;
-
     wrapper.addEventListener('click', () => {
         if (video.paused) {
-            // Load if not loaded
             if (video.readyState === 0) video.load();
             video.muted = false;
             video.play().catch(() => { video.muted = true; video.play(); });
@@ -451,9 +427,7 @@ function openModal(el) {
     const modal   = document.getElementById('imgModal');
     const modalImg = document.getElementById('modalImg');
     const img     = el.querySelector('img');
-
     if (!img || !modal) return;
-
     modalImg.src = img.src;
     modalImg.alt = img.alt;
     modal.classList.add('open');
@@ -467,14 +441,8 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-});
-
-// Close on backdrop click
-document.getElementById('imgModal')?.addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.getElementById('imgModal')?.addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
 /* =============================================
    FAQ ACCORDION
@@ -484,14 +452,10 @@ function initFaq() {
         btn.addEventListener('click', () => {
             const item   = btn.closest('.faq-item');
             const isOpen = item.classList.contains('open');
-
-            // Close all
             document.querySelectorAll('.faq-item').forEach(i => {
                 i.classList.remove('open');
                 i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
             });
-
-            // Open clicked if it was closed
             if (!isOpen) {
                 item.classList.add('open');
                 btn.setAttribute('aria-expanded', 'true');
@@ -507,35 +471,28 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     const btn  = document.getElementById('submitBtn');
     if (!form || !btn) return;
-
     form.addEventListener('submit', () => {
         btn.disabled = true;
-        btn.querySelector('span').textContent =
-            currentLang === 'pt' ? 'Enviando...' : 'Sending...';
-
-        // Re-enable after 6s fallback
+        btn.querySelector('span').textContent = currentLang === 'pt' ? 'Enviando...' : 'Sending...';
         setTimeout(() => {
             btn.disabled = false;
-            btn.querySelector('span').textContent =
-                translations[currentLang]['form.submit'];
+            btn.querySelector('span').textContent = translations[currentLang]['form.submit'];
         }, 6000);
     });
 }
 
 /* =============================================
-   SMOOTH SCROLL OFFSET (for fixed navbar)
+   SMOOTH SCROLL
 ============================================= */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
             if (href === '#') return;
-
             const target = document.querySelector(href);
             if (!target) return;
-
             e.preventDefault();
-            const offset = 72; // navbar height
+            const offset = 72;
             const top = target.getBoundingClientRect().top + window.scrollY - offset;
             window.scrollTo({ top, behavior: 'smooth' });
         });
@@ -543,7 +500,7 @@ function initSmoothScroll() {
 }
 
 /* =============================================
-   REVEAL ON SCROLL (subtle, performance-safe)
+   REVEAL ON SCROLL
 ============================================= */
 function initReveal() {
     const observer = new IntersectionObserver((entries) => {
@@ -554,10 +511,7 @@ function initReveal() {
             }
         });
     }, { threshold: 0.1 });
-
-    document.querySelectorAll(
-        '.scard, .tcard, .tl-item, .thumb-item, .vitem'
-    ).forEach(el => {
+    document.querySelectorAll('.scard, .tcard, .tl-item, .thumb-item, .vitem').forEach(el => {
         el.classList.add('reveal');
         observer.observe(el);
     });
@@ -567,17 +521,12 @@ function initReveal() {
    INIT
 ============================================= */
 document.addEventListener('DOMContentLoaded', () => {
-    // Language: restore from localStorage
     const saved = localStorage.getItem('cm-lang');
     if (saved && saved !== 'pt') {
         currentLang = saved;
         applyTranslations(currentLang);
     }
-
-    // Lang toggle button
     document.getElementById('langToggle')?.addEventListener('click', toggleLang);
-
-    // Load active portfolio panel's lazy videos on start
     const activePanel = document.querySelector('.cat-panel.active');
     if (activePanel) loadLazyVideos(activePanel);
 

@@ -83,12 +83,13 @@ button { font-family: inherit; cursor: pointer; }
     width: 100%;
     z-index: 1000;
     padding: 20px 32px;
-    transition: background 0.4s, transform 0.4s;
+    transition: background 0.4s, transform 0.4s, padding 0.4s;
 }
 
 .navbar.scrolled {
     background: rgba(0,0,0,0.92);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 14px 32px;
     border-bottom: 1px solid var(--border);
 }
@@ -140,15 +141,11 @@ button { font-family: inherit; cursor: pointer; }
     display: flex;
     gap: 4px;
     align-items: center;
-    transition: 0.2s;
+    transition: border-color 0.2s, color 0.2s;
     white-space: nowrap;
 }
 
 .lang-toggle:hover { border-color: var(--cyan); color: var(--cyan); }
-
-.lang-toggle .lang-pt,
-.lang-toggle .lang-en { transition: color 0.2s; }
-
 [data-lang="pt"] .lang-pt { color: #fff; }
 [data-lang="en"] .lang-en { color: var(--cyan); }
 
@@ -178,7 +175,7 @@ button { font-family: inherit; cursor: pointer; }
 .video-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.72) 100%);
     z-index: 1;
 }
 
@@ -207,7 +204,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .hero-sub {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: var(--text);
     line-height: 1.6;
     max-width: 500px;
@@ -276,7 +273,7 @@ button { font-family: inherit; cursor: pointer; }
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: 0.25s;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
 }
 
 .pmenu-btn:hover { border-color: #444; color: #fff; }
@@ -290,67 +287,78 @@ button { font-family: inherit; cursor: pointer; }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Ajuste para o grid de vídeos */
+/* =============================================
+   VIDEO GRID — ÚNICO, SEM CONFLITO
+============================================= */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: var(--max);
+    margin: 0 auto;
 }
 
-/* Container do vídeo (Proporção 16:9) */
-.vwrap.yt {
+/* Wrapper genérico de vídeo */
+.vwrap {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Isso cria o espaço para a imagem */
-    height: 0;
-    background: #000;
-    cursor: pointer;
+    border-radius: var(--radius);
     overflow: hidden;
-    border-radius: 12px;
+    background: #000;
+    border: 1px solid var(--border);
+    transition: border-color 0.25s, transform 0.25s;
 }
 
-/* Garante que a Thumbnail preencha o container */
+.vwrap:hover { border-color: #444; transform: translateY(-3px); }
+
+/* Vídeos locais — proporção 16:9 */
+.vwrap.local {
+    aspect-ratio: 16 / 9;
+}
+
+.vwrap.local video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* YouTube — proporção 16:9 via padding-bottom */
+.vwrap.yt {
+    aspect-ratio: unset;
+    padding-bottom: 56.25%;
+    height: 0;
+    cursor: pointer;
+}
+
 .vwrap.yt img {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Não deixa a imagem esticada */
+    object-fit: cover;
     z-index: 1;
+    transition: transform 0.3s;
 }
 
-/* Botão de Play centralizado */
-.yt-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    background: rgba(0, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    color: #000;
-    cursor: pointer;
-}
+.vwrap.yt:hover img { transform: scale(1.03); }
 
-/* Iframe que substitui a imagem ao clicar */
 .vwrap.yt iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    border: none;
     z-index: 3;
 }
 
+/* Botão play YouTube */
 .yt-play {
     position: absolute;
     inset: 0;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.3);
     border: none;
     color: #fff;
@@ -359,11 +367,13 @@ button { font-family: inherit; cursor: pointer; }
     align-items: center;
     justify-content: center;
     transition: background 0.2s;
+    z-index: 2;
+    cursor: pointer;
 }
 
-.yt-play:hover { background: rgba(0,0,0,0.5); }
+.yt-play:hover { background: rgba(0,0,0,0.55); }
 
-/* Shorts grid */
+/* Shorts */
 .shorts-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 260px));
     justify-content: center;
@@ -375,6 +385,7 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: var(--radius);
     border: 1px solid var(--border);
     object-fit: cover;
+    display: block;
 }
 
 /* =============================================
@@ -413,6 +424,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .thumb-item:hover img { transform: scale(1.04); }
 
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -442,6 +454,7 @@ button { font-family: inherit; cursor: pointer; }
     font-size: 2rem;
     line-height: 1;
     transition: color 0.2s;
+    cursor: pointer;
 }
 
 .modal-close:hover { color: #fff; }
@@ -484,6 +497,7 @@ button { font-family: inherit; cursor: pointer; }
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s;
+    z-index: 2;
 }
 
 .wf-overlay.hidden { opacity: 0; pointer-events: none; }
@@ -501,7 +515,8 @@ button { font-family: inherit; cursor: pointer; }
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: 0.2s;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
 }
 
 .wf-play-btn:hover { background: #fff; color: var(--red); }
@@ -516,6 +531,7 @@ button { font-family: inherit; cursor: pointer; }
     font-weight: 900;
     letter-spacing: 2px;
     border-radius: 2px;
+    z-index: 3;
 }
 
 .wf-label.left  { left: 16px; }
@@ -532,33 +548,37 @@ button { font-family: inherit; cursor: pointer; }
 .workflow-caption strong { color: #fff; }
 
 /* =============================================
-   PROCESSO DE TRABALHO
+   PROCESSO DE TRABALHO — TIMELINE LIMPA
 ============================================= */
 .process-section {
     padding: var(--section-pad);
     background: var(--bg);
 }
 
+/* Container horizontal no desktop */
 .timeline {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     max-width: var(--max);
-    margin: 60px auto;
+    margin: 0 auto;
     padding: 0 20px;
+    gap: 0;
 }
 
+/* Linha horizontal de fundo */
 .main-line {
     position: absolute;
-    top: 24px;
-    left: 50px;
-    right: 50px;
+    top: 24px; /* metade do círculo (48px / 2) */
+    left: calc(20px + 24px); /* padding + metade do círculo */
+    right: calc(20px + 24px);
     height: 2px;
-    background: #1a1a1a;
-    z-index: 1;
+    background: #1f1f1f;
+    z-index: 0;
 }
 
+/* Cada passo */
 .tl-item {
     position: relative;
     display: flex;
@@ -566,55 +586,45 @@ button { font-family: inherit; cursor: pointer; }
     align-items: center;
     text-align: center;
     flex: 1;
-    z-index: 2;
+    z-index: 1;
+    gap: 16px;
+    padding: 0 12px;
 }
 
+/* Círculo numerado */
 .tl-num {
     width: 48px;
     height: 48px;
-    background: #000;
-    border: 2px solid #333;
     border-radius: 50%;
+    border: 2px solid #2a2a2a;
+    background: var(--bg);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    margin-bottom: 20px;
-    z-index: 3;
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: #fff;
+    flex-shrink: 0;
 }
+
 .tl-num.accent-yellow { border-color: var(--yellow); color: var(--yellow); }
-.tl-num.accent-cyan { border-color: var(--cyan); color: var(--cyan); }
-.tl-num.accent-red { border-color: var(--red); color: var(--red); }
+.tl-num.accent-cyan   { border-color: var(--cyan);   color: var(--cyan);   }
+.tl-num.accent-red    { border-color: var(--red);     color: var(--red);    }
 
 .tl-body h3 {
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin-bottom: 8px;
-    font-size: 1.2rem;
     color: #fff;
 }
 
 .tl-body p {
-    color: #888;
+    font-size: 0.83rem;
+    color: var(--muted);
     line-height: 1.6;
 }
-
-.workflow-timeline {
-    position: relative;
-    padding: 40px 0;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.tl-line {
-    position: absolute;
-    left: 31px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #1a1a1a;
-    z-index: 1;
-}
-
-
 
 /* =============================================
    SERVIÇOS
@@ -795,21 +805,9 @@ button { font-family: inherit; cursor: pointer; }
     object-fit: cover;
 }
 
-.tcard-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.tcard-info strong {
-    font-size: 0.88rem;
-    color: #fff;
-}
-
-.tcard-info span {
-    font-size: 0.75rem;
-    color: var(--muted);
-}
+.tcard-info { display: flex; flex-direction: column; gap: 2px; }
+.tcard-info strong { font-size: 0.88rem; color: #fff; }
+.tcard-info span   { font-size: 0.75rem; color: var(--muted); }
 
 /* =============================================
    SOBRE
@@ -846,11 +844,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .about-text p:last-child { margin-bottom: 0; }
 
-.about-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
+.about-stats { display: flex; flex-direction: column; gap: 32px; }
 
 .stat {
     display: flex;
@@ -862,11 +856,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .stat:last-child { border-bottom: none; padding-bottom: 0; }
 
-.stat strong {
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 1;
-}
+.stat strong { font-size: 3rem; font-weight: 900; line-height: 1; }
 
 .stat span {
     font-size: 0.75rem;
@@ -909,6 +899,7 @@ button { font-family: inherit; cursor: pointer; }
     font-weight: 600;
     text-align: left;
     transition: color 0.2s;
+    cursor: pointer;
 }
 
 .faq-q:hover { color: var(--cyan); }
@@ -923,10 +914,7 @@ button { font-family: inherit; cursor: pointer; }
     transition: transform 0.3s, color 0.2s;
 }
 
-.faq-item.open .faq-icon {
-    transform: rotate(45deg);
-    color: var(--cyan);
-}
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--cyan); }
 
 .faq-a {
     overflow: hidden;
@@ -935,7 +923,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .faq-item.open .faq-a { max-height: 400px; }
-
 .faq-a[hidden] { display: block; }
 
 .faq-a p {
@@ -947,10 +934,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .faq-a strong { color: #ccc; }
 
-.faq-cta {
-    text-align: center;
-    margin-top: 56px;
-}
+.faq-cta { text-align: center; margin-top: 56px; }
 
 .faq-cta p {
     font-size: 0.9rem;
@@ -1005,11 +989,7 @@ button { font-family: inherit; cursor: pointer; }
     margin-bottom: 40px;
 }
 
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
+.contact-details { display: flex; flex-direction: column; gap: 0; }
 
 .contact-link {
     display: flex;
@@ -1057,10 +1037,10 @@ button { font-family: inherit; cursor: pointer; }
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: 0.2s;
+    transition: border-color 0.2s, color 0.2s;
 }
 
-.social-btn:hover { border-color: rgb(0, 60, 0); color: rgb(0, 60, 0); }
+.social-btn:hover { border-color: var(--cyan); color: var(--cyan); }
 
 .availability {
     display: flex;
@@ -1068,7 +1048,7 @@ button { font-family: inherit; cursor: pointer; }
     gap: 8px;
     padding-top: 18px;
     font-size: 0.82rem;
-    color: rgb(1, 153, 1);
+    color: #00e676;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -1076,21 +1056,18 @@ button { font-family: inherit; cursor: pointer; }
 .avail-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: rgb(0, 255, 0);
+    background: #00e676;
     animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.6; transform: scale(0.8); }
+    50%       { opacity: 0.5; transform: scale(0.75); }
 }
 
 /* Formulário */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
 
 .form-row {
     display: grid;
@@ -1098,11 +1075,7 @@ button { font-family: inherit; cursor: pointer; }
     gap: 16px;
 }
 
-.form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
+.form-field { display: flex; flex-direction: column; gap: 6px; }
 
 .form-field label {
     font-size: 0.68rem;
@@ -1125,6 +1098,7 @@ button { font-family: inherit; cursor: pointer; }
     transition: border-color 0.2s;
     resize: vertical;
     width: 100%;
+    -webkit-appearance: none;
     appearance: none;
 }
 
@@ -1148,6 +1122,7 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: 4px;
     transition: background 0.2s, transform 0.2s;
     margin-top: 4px;
+    cursor: pointer;
 }
 
 .btn-submit:hover { background: #c20000; transform: translateY(-2px); }
@@ -1173,39 +1148,44 @@ button { font-family: inherit; cursor: pointer; }
     gap: 8px;
 }
 
-.site-footer p {
-    font-size: 0.78rem;
-    color: #333;
-}
+.site-footer p { font-size: 0.78rem; color: #333; }
 
 /* =============================================
    RESPONSIVIDADE
 ============================================= */
 @media (max-width: 1024px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Timeline vira vertical */
     .timeline {
-        display: flex;
         flex-direction: column;
-        gap: 0;
+        align-items: flex-start;
         max-width: 560px;
+        margin: 0 auto;
+        padding: 0 20px;
+        gap: 0;
+    }
+
+    .main-line {
+        /* vira linha vertical à esquerda */
+        top: 24px;
+        left: 43px;
+        right: auto;
+        width: 2px;
+        height: calc(100% - 24px);
     }
 
     .tl-item {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 60px;
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-}
-
-    .tl-num { flex-shrink: 0; }
-
-    .tl-line {
-        width: 2px;
-        height: 32px;
-        transform: none;
-        margin: 0 0 0 29px;
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        padding: 0 0 40px 0;
+        gap: 20px;
     }
+
+    .tl-body { text-align: left; }
 
     .about-inner {
         grid-template-columns: 1fr;
@@ -1235,9 +1215,10 @@ button { font-family: inherit; cursor: pointer; }
     :root { --section-pad: 72px 20px; }
 
     .nav-links { display: none; }
-
     .navbar { padding: 16px 20px; }
     .navbar.scrolled { padding: 12px 20px; }
+
+    .video-grid { grid-template-columns: 1fr; }
 
     .form-row { grid-template-columns: 1fr; }
 
@@ -1249,9 +1230,9 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 @media (max-width: 480px) {
-    .video-grid { grid-template-columns: 1fr; }
     .thumb-grid { grid-template-columns: 1fr 1fr; }
     .hero-content h1 { letter-spacing: -1px; }
+    .shorts-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* =============================================
@@ -1266,68 +1247,4 @@ button { font-family: inherit; cursor: pointer; }
 .reveal.revealed {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Garante que o iframe preencha o espaço da thumb */
-.vwrap.yt iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Mantém a proporção 16:9 do container */
-.vwrap.yt {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Proporção 16:9 */
-    height: 0;
-    cursor: pointer;
-    background: #000;
-}
-
-/* Container do vídeo */
-.vwrap.yt {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Mantém proporção 16:9 */
-    height: 0;
-    background-color: #000;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-/* Garante que a Thumbnail apareça e preencha tudo */
-.vwrap.yt img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Não deixa a imagem esticada feio */
-    transition: transform 0.3s ease;
-    z-index: 1;
-}
-
-/* Botão de Play sobre a imagem */
-.yt-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    /* adicione seu estilo de botão aqui */
-}
-
-/* O iframe (vídeo) quando carregado */
-.vwrap.yt iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3; /* Fica por cima de tudo após o clique */
 }

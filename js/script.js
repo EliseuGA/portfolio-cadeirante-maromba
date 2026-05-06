@@ -3,47 +3,40 @@
 ============================================= */
 const translations = {
     pt: {
-        // Nav
         "nav.portfolio": "Portfólio",
         "nav.services":  "Serviços",
         "nav.about":     "Sobre",
         "nav.contact":   "Contato",
-        // Hero
-        "hero.eyebrow": "Editor de Vídeo & Motion Designer",
-        "hero.sub":     "Transformo gravações brutas em vídeos que as pessoas assistem até o fim.",
-        "hero.cta":     "Vamos trabalhar juntos →",
-        // Portfolio
+        "hero.eyebrow":  "Editor de Vídeo & Motion Designer",
+        "hero.sub":      "Transformo arquivos em <strong>HISTÓRIA.</strong>",
+        "hero.cta":      "VAMOS TRABALHAR JUNTOS!",
         "portfolio.eyebrow": "// trabalhos selecionados",
         "portfolio.title":   "MEUS TRABALHOS",
         "portfolio.motion":  "Motion",
         "portfolio.long":    "Vídeos Longos",
         "portfolio.shorts":  "Shorts",
-        // Thumbs
         "thumbs.eyebrow": "// artes & design",
-        "thumbs.title":   "THUMBNAILS & ARTS",
+        "thumbs.title":   "THUMBNAILS & ARTES",
         "thumbs.sub":     "Cada arte é pensada para converter o scroll em clique.",
-        // Workflow
         "workflow.eyebrow":  "// processo real",
-        "workflow.title":    "Do bruto ao luxo",
+        "workflow.title":    "DO BRUTO AO LUXO",
         "workflow.play":     "PLAY",
         "workflow.raw":      "BRUTO",
         "workflow.edit":     "EDITADO",
-        "workflow.caption":  "O segredo não está no corte, está na <strong>INTENÇÃO!</strong>",
-        // Process
-        "process.eyebrow":     "// transparência total",
-        "process.title":       "Como trabalhamos juntos",
-        "process.sub":         "Sem surpresas. Sem enrolação. Do primeiro \"oi\" até o arquivo na sua mão.",
-        "process.s1.title":    "Briefing",
-        "process.s1.desc":     "Você me conta tudo — estilo, referências, o que quer transmitir. Quanto mais eu entender o seu canal, melhor o resultado final.",
-        "process.s2.title":    "Edição",
-        "process.s2.desc":     "Mergulho no material bruto. Cada corte, cada trilha, cada efeito tem uma razão de existir. Nada é aleatório.",
-        "process.s3.title":    "Revisão",
-        "process.s3.desc":     "Você assiste, aponta o que quer ajustar e eu faço acontecer. Sem julgamento, sem drama. O vídeo é seu.",
-        "process.s4.title":    "Entrega",
-        "process.s4.desc":     "Arquivo em alta qualidade, no formato certo para cada plataforma. Pronto pra postar, pronto pra crescer.",
-        // Services
+        "workflow.caption":  "O segredo não está no corte, está na <strong>INTENÇÃO.</strong>",
+        "process.eyebrow":  "// transparência total",
+        "process.title":    "COMO TRABALHAREMOS JUNTOS?",
+        "process.sub":      "Do primeiro \"oi\" até o arquivo na sua mão.",
+        "process.s1.title": "BRIEFING",
+        "process.s1.desc":  "Você me conta tudo sobre sua ideia e o que quer transmitir. Quanto mais eu entender sobre seu canal, melhor o resultado final.",
+        "process.s2.title": "EDIÇÃO",
+        "process.s2.desc":  "Mergulho no material bruto, onde cada corte, cada música e cada efeito marcam sua presença.",
+        "process.s3.title": "REVISÃO",
+        "process.s3.desc":  "Você assiste, aponta o que quer ajustar e eu faço acontecer.",
+        "process.s4.title": "ENTREGA",
+        "process.s4.desc":  "Arquivo em alta qualidade saindo direto do forno. Pronto pra postar, pronto pra crescer!",
         "services.eyebrow": "// o que eu ofereço",
-        "services.title":   "Serviços",
+        "services.title":   "SERVIÇOS",
         "services.sub":     "Escolha o que faz sentido para o seu canal agora.",
         "sv.badge":          "Mais pedido",
         "sv.cta":            "Quero esse →",
@@ -69,16 +62,14 @@ const translations = {
         "sv.short.l4": "Formato 9:16 otimizado",
         "sv.short.l5": "Entrega em até 2 dias úteis",
         "sv.motion.title":   "Motion + Thumb",
-        "sv.motion.desc":    "A identidade visual do seu canal. Intros, vinhetas, overlays e thumbnails que fazem o algoritmo e o público pararem para olhar.",
+        "sv.motion.desc":    "A identidade visual do seu canal. Intros, finalização, overlays e thumbnails que fazem o algoritmo e o público pararem para olhar.",
         "sv.motion.l1": "Intro animada sob medida",
-        "sv.motion.l2": "Vinheta de encerramento",
+        "sv.motion.l2": "Outro de encerramento",
         "sv.motion.l3": "Lower thirds e overlays",
         "sv.motion.l4": "Thumbnail pensada para converter",
         "sv.motion.l5": "Arquivos editáveis na entrega",
-        // Testimonials
         "test.eyebrow": "// sem filtro",
         "test.title":   "O que dizem sobre mim",
-        // About
         "about.eyebrow": "// sobre mim",
         "about.title":   "Sou editor. Sou designer.<br>Mas antes de tudo, sou <span class=\"accent-cyan\">criador.</span>",
         "about.p1":      "Cada segundo de vídeo que sai daqui foi pensado por alguém que entende o que é criar conteúdo — a pressão do prazo, a ansiedade com a entrega, a esperança de que o vídeo vai funcionar.",
@@ -87,7 +78,6 @@ const translations = {
         "about.stat1":   "Parcerias feitas",
         "about.stat2":   "Pessoas alcançadas",
         "about.stat3":   "De cuidado e foco",
-        // FAQ
         "faq.eyebrow":   "// dúvidas comuns",
         "faq.title":     "Perguntas frequentes",
         "faq.q1":  "Como funciona a cobrança?",
@@ -97,21 +87,19 @@ const translations = {
         "faq.q3":  "Quantas revisões estão incluídas?",
         "faq.a3":  "São <strong>3 rodadas de revisão</strong> incluídas. Se precisar de mais, resolvemos juntos — o objetivo é você ficar 100% satisfeito.",
         "faq.q4":  "Como funciona o pagamento?",
-        "faq.a4":  "<strong>50% de entrada</strong> antes de começar, outros 50% na entrega. Aceito Pix, transferência e outros meios que combinamos pelo WhatsApp.",
+        "faq.a4":  "<strong>Caso seja projeto de preço fixo, 50% de entrada</strong> antes de começar, outros 50% na entrega. Aceito Pix, transferência e outros meios que combinamos pelo WhatsApp.",
         "faq.q5":  "Em quais formatos você entrega?",
         "faq.a5":  "<strong>MP4 (H.264/H.265)</strong> nas proporções certas para cada plataforma — 16:9 para YouTube, 9:16 para Shorts/Reels/TikTok. Formato diferente? É só pedir.",
         "faq.q6":  "Como envio o material?",
         "faq.a6":  "Prefiro receber via <strong>Google Drive ou WeTransfer</strong>. Você manda o link com tudo — gravações, áudios, referências — e eu começo assim que a entrada for confirmada.",
         "faq.ctaText": "Ficou com alguma dúvida?",
-        "faq.ctaBtn":  "Fala comigo →",
-        // Contact
+        "faq.ctaBtn":  "Fala comigo! →",
         "contact.eyebrow":  "// vamos trabalhar juntos",
         "contact.title":    "Pronto para criar algo que vale a pena assistir?",
-        "contact.sub":      "Respondo em até 24h. Pode me mandar uma mensagem sem cerimônia — adoro entender o projeto antes de qualquer coisa.",
+        "contact.sub":      "Respondo em até 24h. Pode me mandar uma mensagem. Procuro entender o cliente antes de qualquer coisa.",
         "contact.whatsapp": "WhatsApp",
         "contact.email":    "E-mail",
-        "contact.avail":    "Aceitando novos projetos",
-        // Form
+        "contact.avail":    "DISPONÍVEL PARA NOVOS PROJETOS!",
         "form.name":    "Seu nome",
         "form.channel": "Canal / Marca",
         "form.service": "O que você precisa?",
@@ -125,49 +113,41 @@ const translations = {
         "form.message": "Me conta mais",
         "form.submit":  "Enviar mensagem",
         "form.note":    "Sem spam. Sem robô. Só eu do outro lado.",
-        // Footer
-        "footer.made":  "Feito com foco e muito café."
+        "footer.made":  "Feito com suor e muito café."
     },
     en: {
-        // Nav
         "nav.portfolio": "Portfolio",
         "nav.services":  "Services",
         "nav.about":     "About",
         "nav.contact":   "Contact",
-        // Hero
-        "hero.eyebrow": "Video Editor & Motion Designer",
-        "hero.sub":     "I turn files into HISTORY",
-        "hero.cta":     "LET'S WORK TOGUETHER!",
-        // Portfolio
+        "hero.eyebrow":  "Video Editor & Motion Designer",
+        "hero.sub":      "I turn files into <strong>HISTORY.</strong>",
+        "hero.cta":      "LET'S WORK TOGETHER!",
         "portfolio.eyebrow": "// selected work",
         "portfolio.title":   "MY WORKS",
         "portfolio.motion":  "Motion",
         "portfolio.long":    "Long Videos",
         "portfolio.shorts":  "Shorts",
-        // Thumbs
         "thumbs.eyebrow": "// art & design",
         "thumbs.title":   "THUMBNAILS & ARTS",
         "thumbs.sub":     "Every thumbnail is crafted to turn the scroll into a click.",
-        // Workflow
         "workflow.eyebrow":  "// real process",
         "workflow.title":    "FROM RAGS TO RICHES",
         "workflow.play":     "PLAY",
         "workflow.raw":      "RAW",
         "workflow.edit":     "EDITED",
         "workflow.caption":  "The secret isn't in the cut, it's in the <strong>INTENTION.</strong>",
-        // Process
-        "process.eyebrow":     "// full transparency",
-        "process.title":       "HOW WE'LL WORK TOGUETHER?",
-        "process.sub":         "From the first message to the final file in your hands.",
-        "process.s1.title":    "BRIEFING",
-        "process.s1.desc":     "You tell me all about your idea and what you want to convey, and I'll transform it into your visual identity. The more I understand about your channel, the better the final result.",
-        "process.s2.title":    "EDITING",
-        "process.s2.desc":     "I dive into the raw footage. Every cut, every track, every effect has a reason.",
-        "process.s3.title":    "REVIEW",
-        "process.s3.desc":     "You watch, point out what you want to adjust, and I make it happen.",
-        "process.s4.title":    "DELIVERY",
-        "process.s4.desc":     "High-quality file hot off the press. Ready to post, ready to grow!",
-        // Services
+        "process.eyebrow":  "// full transparency",
+        "process.title":    "HOW WE'LL WORK TOGETHER?",
+        "process.sub":      "From the first message to the final file in your hands.",
+        "process.s1.title": "BRIEFING",
+        "process.s1.desc":  "You tell me all about your idea and what you want to convey. The more I understand about your channel, the better the final result.",
+        "process.s2.title": "EDITING",
+        "process.s2.desc":  "I dive into the raw footage. Every cut, every track, every effect has a reason.",
+        "process.s3.title": "REVIEW",
+        "process.s3.desc":  "You watch, point out what you want to adjust, and I make it happen.",
+        "process.s4.title": "DELIVERY",
+        "process.s4.desc":  "High-quality file hot off the press. Ready to post, ready to grow!",
         "services.eyebrow": "// what I offer",
         "services.title":   "SERVICES",
         "services.sub":     "Pick what makes sense for your channel right now.",
@@ -195,49 +175,44 @@ const translations = {
         "sv.short.l4": "Optimized 9:16 format",
         "sv.short.l5": "Delivery within 2 business days",
         "sv.motion.title":   "Motion + Thumb",
-        "sv.motion.desc":    "Your channel's visual identity. Intros, outros, overlays and thumbnails that make both the algorithm and the audience stop scrolling.",
+        "sv.motion.desc":    "Your channel's visual identity. Intros, outros, overlays and thumbnails that make the algorithm and the audience stop scrolling.",
         "sv.motion.l1": "Custom animated intro",
         "sv.motion.l2": "Outro / end screen",
         "sv.motion.l3": "Lower thirds and overlays",
         "sv.motion.l4": "Click-optimized thumbnail",
         "sv.motion.l5": "Editable files on delivery",
-        // Testimonials
         "test.eyebrow": "// unfiltered",
         "test.title":   "What they say about me",
-        // About
         "about.eyebrow": "// about me",
         "about.title":   "I'm an editor. A designer.<br>But above all, I'm a <span class=\"accent-cyan\">creator.</span>",
         "about.p1":      "Every second of video that leaves here was thought through by someone who knows what it feels like to create content — the deadline pressure, the delivery anxiety, the hope that the video will actually work.",
-        "about.p2":      "I don't edit on autopilot. Every project gets my full attention, from the first cut to the last track. My goal is simple: when you watch the result, you should feel it was worth every penny.",
+        "about.p2":      "I don't edit on autopilot. Every project gets my full attention, from the first cut to the last track. My goal: when you watch the result, feel it was worth every penny.",
         "about.p3":      "You create. I handle the rest.",
         "about.stat1":   "Partnerships made",
         "about.stat2":   "People reached",
         "about.stat3":   "Of care and focus",
-        // FAQ
         "faq.eyebrow":   "// common questions",
         "faq.title":     "Frequently asked questions",
         "faq.q1":  "How does pricing work?",
         "faq.a1":  "Pricing can be either a <strong>fixed project rate</strong> or <strong>per hour edited</strong>. Fixed gives you predictability; hourly works better for larger, more variable projects. We'll figure out what makes more sense during the briefing.",
         "faq.q2":  "What's the turnaround time?",
-        "faq.a2":  "Long videos ship within <strong>3 to 5 business days</strong> after receiving the footage. Shorts and Reels in up to <strong>2 business days</strong>. Motion and identity projects depend on complexity — we sort that out in the briefing.",
+        "faq.a2":  "Long videos ship within <strong>3 to 5 business days</strong> after receiving the footage. Shorts and Reels in up to <strong>2 business days</strong>. Motion and identity projects depend on complexity.",
         "faq.q3":  "How many revisions are included?",
-        "faq.a3":  "<strong>3 revision rounds</strong> are included. If you need more, we'll figure it out together — the goal is for you to be 100% happy.",
+        "faq.a3":  "<strong>3 revision rounds</strong> are included. If you need more, we'll figure it out together.",
         "faq.q4":  "How does payment work?",
-        "faq.a4":  "<strong>50% upfront</strong> If it's a fixed-price project, 50% down payment before starting, and the remaining 50% upon delivery. I accept Pix, bank transfer, and other methods that we can discuss via WhatsApp.",
+        "faq.a4":  "<strong>For fixed-price projects, 50% upfront</strong> before starting, and the remaining 50% upon delivery. I accept Pix, bank transfer, and other methods via WhatsApp.",
         "faq.q5":  "What formats do you deliver in?",
         "faq.a5":  "<strong>MP4 (H.264/H.265)</strong> in the right aspect ratio for each platform — 16:9 for YouTube, 9:16 for Shorts/Reels/TikTok. Need something different? Just ask.",
         "faq.q6":  "How do I send you the footage?",
-        "faq.a6":  "I prefer receiving files via <strong>Google Drive or WeTransfer</strong>. Send me the link with everything — recordings, audio, references — and I'll get started once the deposit is confirmed.",
+        "faq.a6":  "I prefer receiving files via <strong>Google Drive or WeTransfer</strong>. Send me the link with everything and I'll get started once the deposit is confirmed.",
         "faq.ctaText": "Still have a question?",
-        "faq.ctaBtn":  "Talk to me →",
-        // Contact
+        "faq.ctaBtn":  "Talk to me! →",
         "contact.eyebrow":  "// let's work together",
         "contact.title":    "Ready to create something worth watching?",
         "contact.sub":      "I respond within 24h. Feel free to reach out — I love learning about the project before anything else.",
         "contact.whatsapp": "WhatsApp",
         "contact.email":    "E-mail",
-        "contact.avail":    "Currently accepting new projects",
-        // Form
+        "contact.avail":    "AVAILABLE FOR NEW PROJECTS!",
         "form.name":    "Your name",
         "form.channel": "Channel / Brand",
         "form.service": "What do you need?",
@@ -251,14 +226,10 @@ const translations = {
         "form.message": "Tell me more",
         "form.submit":  "Send message",
         "form.note":    "No spam. No bots. Just me on the other side.",
-        // Footer
-        "footer.made": "Made with focus and lots of coffee."
+        "footer.made":  "Made with sweat and lots of coffee."
     }
 };
 
-/* =============================================
-   ESTADO GLOBAL
-============================================= */
 let currentLang = 'pt';
 
 /* =============================================
@@ -267,24 +238,16 @@ let currentLang = 'pt';
 function applyTranslations(lang) {
     const t = translations[lang];
     if (!t) return;
-
+    const htmlTags = ['P', 'SPAN', 'H2', 'H3', 'LABEL', 'A', 'BUTTON'];
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (!t[key]) return;
-
-        const htmlTags = ['P', 'SPAN', 'H2', 'H3', 'LABEL', 'A', 'BUTTON'];
         if (htmlTags.includes(el.tagName)) {
             el.innerHTML = t[key];
         } else {
             el.textContent = t[key];
         }
     });
-
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (t[key]) el.placeholder = t[key];
-    });
-
     document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
     document.documentElement.setAttribute('data-lang', lang);
 }
@@ -296,7 +259,7 @@ function toggleLang() {
 }
 
 /* =============================================
-   NAVBAR: scroll behavior
+   NAVBAR
 ============================================= */
 function initNavbar() {
     const navbar = document.getElementById('navbar');
@@ -322,20 +285,43 @@ function initNavbar() {
 }
 
 /* =============================================
-   PORTFOLIO CATEGORY SWITCHER
+   SMOOTH SCROLL — com polyfill para Safari
+============================================= */
+function initSmoothScroll() {
+    // Se o browser suporta scroll-behavior nativo, deixa o CSS cuidar.
+    // Mas implementamos manualmente para garantir offset correto em todos os browsers.
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+            const navH = document.getElementById('navbar')?.offsetHeight || 72;
+            const top = target.getBoundingClientRect().top + window.scrollY - navH;
+            window.scrollTo({ top, behavior: 'smooth' });
+        });
+    });
+}
+
+/* =============================================
+   PORTFOLIO SWITCHER
 ============================================= */
 function initPortfolio() {
-    const btns = document.querySelectorAll('.pmenu-btn');
+    const btns   = document.querySelectorAll('.pmenu-btn');
     const panels = document.querySelectorAll('.cat-panel');
 
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
             const cat = btn.getAttribute('data-cat');
+
+            // Pausa todos os vídeos
             panels.forEach(panel => {
                 panel.querySelectorAll('video').forEach(v => v.pause());
                 panel.classList.remove('active');
             });
             btns.forEach(b => b.classList.remove('active'));
+
             btn.classList.add('active');
             const target = document.getElementById('cat-' + cat);
             if (!target) return;
@@ -349,12 +335,11 @@ function initPortfolio() {
    LAZY VIDEO LOADING
 ============================================= */
 function loadLazyVideos(container) {
-    const videos = container ? container.querySelectorAll('.lazy-video') : document.querySelectorAll('.lazy-video');
-    videos.forEach(video => {
-        const sources = video.querySelectorAll('source[data-src]');
-        sources.forEach(source => {
-            if (!source.src || source.src === window.location.href) {
-                source.src = source.getAttribute('data-src');
+    const scope = container || document;
+    scope.querySelectorAll('.lazy-video').forEach(video => {
+        video.querySelectorAll('source[data-src]').forEach(source => {
+            if (!source.getAttribute('src')) {
+                source.setAttribute('src', source.getAttribute('data-src'));
             }
         });
         if (video.readyState === 0) video.load();
@@ -362,38 +347,59 @@ function loadLazyVideos(container) {
 }
 
 /* =============================================
-   INTERSECTION OBSERVER
+   VIDEO OBSERVER — autoplay no scroll
 ============================================= */
 function initVideoObserver() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                loadLazyVideos(video.parentElement);
+                loadLazyVideos(video.closest('.cat-panel') || video.parentElement);
                 video.play().catch(() => {});
             } else {
                 video.pause();
             }
         });
     }, { threshold: 0.3 });
+
     document.querySelectorAll('.lazy-video').forEach(v => observer.observe(v));
 }
 
 /* =============================================
-   YOUTUBE CLICK-TO-LOAD (CORRIGIDO)
+   YOUTUBE — thumbnail sem bloqueio de bot
+   
+   O problema "Faça login para confirmar que você não é um bot"
+   acontece porque img.youtube.com bloqueia hotlinking em produção.
+   
+   SOLUÇÃO: usar a URL pública correta do Google (i.ytimg.com) +
+   fallback para hqdefault se maxresdefault não carregar.
+   Quando o usuário clica, carregamos o iframe com youtube-nocookie.com
+   para evitar bloqueios de CSP e rastreamento.
 ============================================= */
 function initYouTube() {
     document.querySelectorAll('.vwrap.yt').forEach(wrap => {
-        wrap.addEventListener('click', () => {
-            const vid = wrap.getAttribute('data-vid');
-            if (!vid) return;
+        const vid = wrap.getAttribute('data-vid');
+        if (!vid) return;
 
-            // Usando youtube-nocookie para evitar bloqueios de bots e privacidade
+        // Corrige a thumbnail: usa i.ytimg.com (CDN público do Google, sem bloqueio)
+        const img = wrap.querySelector('img');
+        if (img) {
+            // Tenta maxresdefault primeiro, cai para hqdefault se falhar
+            img.src = `https://i.ytimg.com/vi/${vid}/maxresdefault.jpg`;
+            img.onerror = () => {
+                img.src = `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`;
+                img.onerror = null; // Evita loop infinito
+            };
+        }
+
+        // Clique: substitui por iframe do youtube-nocookie (sem cookie, sem bloqueio)
+        wrap.addEventListener('click', () => {
             wrap.innerHTML = `<iframe
                 src="https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1"
                 frameborder="0"
                 allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+                allowfullscreen
+                loading="lazy">
             </iframe>`;
         });
     });
@@ -407,6 +413,7 @@ function initWorkflow() {
     const video   = document.getElementById('workflowVideo');
     const overlay = document.getElementById('wfOverlay');
     if (!wrapper || !video || !overlay) return;
+
     wrapper.addEventListener('click', () => {
         if (video.paused) {
             if (video.readyState === 0) video.load();
@@ -421,12 +428,12 @@ function initWorkflow() {
 }
 
 /* =============================================
-   THUMBNAIL MODAL
+   MODAL DE IMAGEM
 ============================================= */
 function openModal(el) {
-    const modal   = document.getElementById('imgModal');
+    const modal    = document.getElementById('imgModal');
     const modalImg = document.getElementById('modalImg');
-    const img     = el.querySelector('img');
+    const img      = el.querySelector('img');
     if (!img || !modal) return;
     modalImg.src = img.src;
     modalImg.alt = img.alt;
@@ -442,7 +449,6 @@ function closeModal() {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-document.getElementById('imgModal')?.addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
 /* =============================================
    FAQ ACCORDION
@@ -452,10 +458,12 @@ function initFaq() {
         btn.addEventListener('click', () => {
             const item   = btn.closest('.faq-item');
             const isOpen = item.classList.contains('open');
+
             document.querySelectorAll('.faq-item').forEach(i => {
                 i.classList.remove('open');
                 i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
             });
+
             if (!isOpen) {
                 item.classList.add('open');
                 btn.setAttribute('aria-expanded', 'true');
@@ -465,37 +473,21 @@ function initFaq() {
 }
 
 /* =============================================
-   CONTACT FORM
+   FORMULÁRIO DE CONTATO
 ============================================= */
 function initContactForm() {
     const form = document.getElementById('contactForm');
     const btn  = document.getElementById('submitBtn');
     if (!form || !btn) return;
+
     form.addEventListener('submit', () => {
         btn.disabled = true;
-        btn.querySelector('span').textContent = currentLang === 'pt' ? 'Enviando...' : 'Sending...';
+        const span = btn.querySelector('span');
+        if (span) span.textContent = currentLang === 'pt' ? 'Enviando...' : 'Sending...';
         setTimeout(() => {
             btn.disabled = false;
-            btn.querySelector('span').textContent = translations[currentLang]['form.submit'];
+            if (span) span.textContent = translations[currentLang]['form.submit'];
         }, 6000);
-    });
-}
-
-/* =============================================
-   SMOOTH SCROLL
-============================================= */
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-            const href = link.getAttribute('href');
-            if (href === '#') return;
-            const target = document.querySelector(href);
-            if (!target) return;
-            e.preventDefault();
-            const offset = 72;
-            const top = target.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top, behavior: 'smooth' });
-        });
     });
 }
 
@@ -510,7 +502,8 @@ function initReveal() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
+
     document.querySelectorAll('.scard, .tcard, .tl-item, .thumb-item, .vitem').forEach(el => {
         el.classList.add('reveal');
         observer.observe(el);
@@ -521,22 +514,33 @@ function initReveal() {
    INIT
 ============================================= */
 document.addEventListener('DOMContentLoaded', () => {
+    // Restaura idioma salvo
     const saved = localStorage.getItem('cm-lang');
     if (saved && saved !== 'pt') {
         currentLang = saved;
         applyTranslations(currentLang);
     }
+
+    // Fecha modal ao clicar no fundo
+    document.getElementById('imgModal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    // Botão de idioma
     document.getElementById('langToggle')?.addEventListener('click', toggleLang);
+
+    // Carrega vídeos do painel ativo inicial
     const activePanel = document.querySelector('.cat-panel.active');
     if (activePanel) loadLazyVideos(activePanel);
 
+    // Inicializa tudo
     initNavbar();
+    initSmoothScroll();
     initPortfolio();
     initVideoObserver();
-    initYouTube();
+    initYouTube();       // ← corrige as thumbnails do YouTube
     initWorkflow();
     initFaq();
     initContactForm();
-    initSmoothScroll();
     initReveal();
 });

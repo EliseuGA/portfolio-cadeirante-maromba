@@ -285,11 +285,31 @@ function initNavbar() {
 }
 
 /* =============================================
-   SMOOTH SCROLL — com polyfill para Safari
+   SMOOTH SCROLL — animação manual via rAF
+   overflow-x:hidden no html quebra o scroll-behavior
+   nativo em produção. Animação própria resolve.
 ============================================= */
+function smoothScrollTo(targetY, duration) {
+    const startY   = window.scrollY;
+    const distance = targetY - startY;
+    let startTime  = null;
+
+    function ease(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed  = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + distance * ease(progress));
+        if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+}
+
 function initSmoothScroll() {
-    // Se o browser suporta scroll-behavior nativo, deixa o CSS cuidar.
-    // Mas implementamos manualmente para garantir offset correto em todos os browsers.
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
@@ -298,8 +318,8 @@ function initSmoothScroll() {
             if (!target) return;
             e.preventDefault();
             const navH = document.getElementById('navbar')?.offsetHeight || 72;
-            const top = target.getBoundingClientRect().top + window.scrollY - navH;
-            window.scrollTo({ top, behavior: 'smooth' });
+            const top  = target.getBoundingClientRect().top + window.scrollY - navH;
+            smoothScrollTo(top, 800);
         });
     });
 }

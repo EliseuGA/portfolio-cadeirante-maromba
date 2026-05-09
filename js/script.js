@@ -7,7 +7,7 @@ const translations = {
         "nav.services":  "Serviços",
         "nav.about":     "Sobre",
         "nav.contact":   "Contato",
-        "hero.eyebrow":  "Editor de Vídeo & Motion Designer",
+        "hero.eyebrow":  "Editor de Vídeo, Motion Designer & Artista",
         "hero.sub":      "Transformo arquivos em <strong>HISTÓRIA.</strong>",
         "hero.cta":      "VAMOS TRABALHAR JUNTOS!",
         "portfolio.eyebrow": "// trabalhos selecionados",
@@ -112,6 +112,7 @@ const translations = {
         "form.opt6":    "Outro",
         "form.message": "Me conta mais",
         "form.submit":  "Enviar mensagem",
+        "form.note":    "Preços variam de acordo com o projeto, e, estão sujeitos à sofrer alterações.",
         "form.note":    "Sem spam. Sem robô. Só eu do outro lado.",
         "footer.made":  "Feito com suor e muito café."
     },
@@ -120,7 +121,7 @@ const translations = {
         "nav.services":  "Services",
         "nav.about":     "About",
         "nav.contact":   "Contact",
-        "hero.eyebrow":  "Video Editor & Motion Designer",
+        "hero.eyebrow":  "Video Editor, Motion Designer & Artist",
         "hero.sub":      "I turn files into <strong>HISTORY.</strong>",
         "hero.cta":      "LET'S WORK TOGETHER!",
         "portfolio.eyebrow": "// selected work",
@@ -196,7 +197,7 @@ const translations = {
         "faq.q1":  "How does pricing work?",
         "faq.a1":  "Pricing can be either a <strong>fixed project rate</strong> or <strong>per hour edited</strong>. Fixed gives you predictability; hourly works better for larger, more variable projects. We'll figure out what makes more sense during the briefing.",
         "faq.q2":  "What's the turnaround time?",
-        "faq.a2":  "Long videos ship within <strong>3 to 5 business days</strong> after receiving the footage. Shorts and Reels in up to <strong>2 business days</strong>. Motion and identity projects depend on complexity.",
+        "faq.a2":  "Long videos ship within <strong>5 to 10 business days</strong> after receiving the footage. Shorts and Reels in up to <strong>4 business days</strong>. Motion and identity projects depend on complexity. Artwork, thumbnails, and sprites will be ready within 4 to 14 days of payment confirmation.",
         "faq.q3":  "How many revisions are included?",
         "faq.a3":  "<strong>3 revision rounds</strong> are included. If you need more, we'll figure it out together.",
         "faq.q4":  "How does payment work?",
@@ -225,6 +226,7 @@ const translations = {
         "form.opt6":    "Other",
         "form.message": "Tell me more",
         "form.submit":  "Send message",
+        "form.note":    "Prices vary depending on the project and are subject to change.",
         "form.note":    "No spam. No bots. Just me on the other side.",
         "footer.made":  "Made with sweat and lots of coffee."
     }

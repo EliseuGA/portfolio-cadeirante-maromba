@@ -189,7 +189,6 @@ button { font-family: inherit; cursor: pointer; }
 .hero-eyebrow {
     font-size: 0.8rem;
     letter-spacing: 3px;
-    color: var(--cyan);
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 20px;
